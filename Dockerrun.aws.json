@@ -1,0 +1,9 @@
+{
+  "AWSDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "client",
+      "image": "tfawibe/multi-client"
+    }
+  ]
+}

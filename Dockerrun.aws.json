@@ -3,7 +3,34 @@
   "containerDefinitions": [
     {
       "name": "client",
-      "image": "tfawibe/multi-client"
+      "image": "tfawibe/multi-client",
+      "hostname": "client",
+      "essential": false
+    },
+    {
+      "name": "worker",
+      "image": "tfawibe/multi-worker",
+      "hostname": "client",
+      "essential": false
+    },
+    {
+      "name": "server",
+      "image": "tfawibe/multi-server",
+      "hostname": "api",
+      "essential": false
+    },
+    {
+      "name": "nginx",
+      "image": "tfawibe/multi-nginx",
+      "hostname": "nginx",
+      "essential": "true",
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": ["client", "server"]
     }
   ]
 }
